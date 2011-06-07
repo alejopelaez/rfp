@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  scope: 1.5
+  scope_comment: MyString
+  activities: 1.5
+  activities_comment: MyString
+  deadline: 1.5
+  deadline_comment: MyString
+  knowledge: 1.5
+  knowledge_comment: MyString
+  technology_availability: 1.5
+  technology_availability_comment: MyString
+  human_availability: 1.5
+  human_availability_comment: MyString
+  experience: 1.5
+  experience_comment: MyString
+  total_score: 1.5
+
+two:
+  scope: 1.5
+  scope_comment: MyString
+  activities: 1.5
+  activities_comment: MyString
+  deadline: 1.5
+  deadline_comment: MyString
+  knowledge: 1.5
+  knowledge_comment: MyString
+  technology_availability: 1.5
+  technology_availability_comment: MyString
+  human_availability: 1.5
+  human_availability_comment: MyString
+  experience: 1.5
+  experience_comment: MyString
+  total_score: 1.5

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  penalties: 1.5
+  penalties_comment: MyString
+  fulfillment_probability: 1.5
+  fulfillmetn_probability_comment: MyString
+  total_score: 1.5
+
+two:
+  penalties: 1.5
+  penalties_comment: MyString
+  fulfillment_probability: 1.5
+  fulfillmetn_probability_comment: MyString
+  total_score: 1.5

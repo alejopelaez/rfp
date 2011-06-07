@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  adquired_knowledge: 1.5
+  adquired_knowldge_comment: MyString
+  importance: 1.5
+  importance_comment: MyString
+  positioning: 1.5
+  positioning_comment: MyString
+  total_score: 1.5
+
+two:
+  adquired_knowledge: 1.5
+  adquired_knowldge_comment: MyString
+  importance: 1.5
+  importance_comment: MyString
+  positioning: 1.5
+  positioning_comment: MyString
+  total_score: 1.5

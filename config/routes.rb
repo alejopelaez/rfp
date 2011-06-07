@@ -9,7 +9,8 @@ Rfp::Application.routes.draw do
   resources :user_sessions
   resources :projects
   resources :cost_scores
-
+  resources :technology_scores
+  resources :development_scores
 
   root :to => "user_sessions#new"
 

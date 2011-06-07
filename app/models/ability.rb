@@ -18,35 +18,38 @@ class Ability
       # This is done by checkng the DB if there exist a record
       # Relating the user and the project with that particular role
       can :grade_cost, Project do |p|
-        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[0])
+        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[0]).first
         !assignment.nil?
       end
 
       can :grade_technology, Project do |p|
-        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[1])
+        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[1]).first
         !assignment.nil?
       end
 
       can :grade_development, Project do |p|
-        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[2])
+        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[2]).first
         !assignment.nil?
       end
 
       can :grade_legal, Project do |p|
-        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[3])
+        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[3]).first
         !assignment.nil?
       end
 
       can :grade_risks, Project do |p|
-        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[4])
+        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[4]).first
         !assignment.nil?
       end
 
       can :grade_opportunities, Project do |p|
-        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[5])
+        assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[5]).first
         !assignment.nil?
       end
+    else
+      can :create, User 
     end
+  
     #
     # The first argument to `can` is the action you are giving the user permission to do.
     # If you pass :manage it will apply to every action. Other common actions here are

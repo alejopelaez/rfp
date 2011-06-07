@@ -10,26 +10,85 @@
     <h2>Costos</h2>
       <%= form_for @cost_score do |f| %>
       <strong>Costo:</strong>
-      <%= f.text_field :cost, :size => 4 %><br/>
+      <%= f.text_field :cost, :size => 3 %><br/>
       <strong>Comentario:</strong><br/>
-      <%= f.text_area :cost_comment, :rows => 6 %><br/><br/>
+      <%= f.text_area :cost_comment, :rows => 5, :cols => 90 %><br/><br/>
       
       <strong>Pago:</strong>
-      <%= f.text_field :payment, :size => 4 %><br/>
+      <%= f.text_field :payment, :size => 3 %><br/>
       <strong>Comentario:</strong><br/>
-      <%= f.text_area :payment_comment, :rows => 6 %><br/><br/>
+      <%= f.text_area :payment_comment, :rows => 5, :cols => 90 %><br/><br/>
       
       <strong>Forma de pago:</strong>
-      <%= f.text_field :payment_option, :size => 4 %><br/>
+      <%= f.text_field :payment_option, :size => 3 %><br/>
       <strong>Comentario:</strong><br/>
-      <%= f.text_area :payment_option_comment, :rows => 6 %>
+      <%= f.text_area :payment_option_comment, :rows => 5, :cols => 90 %>
     <% end %>
   </div>
 <% end %>
-<div id="tech_grades">
-</div>
-<div id="development_grades">
-</div>
+<% if can? :grade_technology, @project %>
+  <div id="tech_grades">
+    <h2>Aspecto técnico</h2>
+      <%= form_for @tech_score do |f| %>
+      <strong>Requerimientos Tecnológicos:</strong>
+      <%= f.text_field :tech_requirements, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :tech_requirements_comment, :rows => 5, :cols => 90 %><br/><br/>
+      
+      <strong>Recursos actuales:</strong>
+      <%= f.text_field :actual_resources, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :actual_resources_comment, :rows => 5, :cols => 90 %><br/><br/>
+      
+      <strong>Recursos faltantes:</strong>
+      <%= f.text_field :missing_resources, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :missing_resources_comment, :rows => 5, :cols => 90 %>
+    <% end %>
+  </div>
+<% end %>
+<% if can? :grade_development, @project %>
+  <div id="development_grades">
+    <h2>Aspecto de desarrollo</h2>
+      <%= form_for @development_score do |f| %>
+      <strong>Alcance:</strong>
+      <%= f.text_field :scope, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :scope_comment, :rows => 5, :cols => 90 %><br/><br/>
+      
+      <strong>Actividades:</strong>
+      <%= f.text_field :activities, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :activities_comment, :rows => 5, :cols => 90 %><br/><br/>
+      
+      <strong>Fecha de entrega:</strong>
+      <%= f.text_field :deadline, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :deadline_comment, :rows => 5, :cols => 90 %><br/><br/>
+
+      <strong>Conocimiento Requerido:</strong>
+      <%= f.text_field :knowledge, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :knowledge_comment, :rows => 5, :cols => 90 %><br/><br/>
+
+      <strong>Disponibilidad de los recursos tecnológicos:</strong>
+      <%= f.text_field :technology_availability, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :technology_availability_comment, :rows => 5, :cols => 90 %><br/><br/>
+
+      <strong>Disponibilidad de los recursos humanos:</strong>
+      <%= f.text_field :human_availability, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :human_availability_comment, :rows => 5, :cols => 90 %><br/><br/>
+
+      <strong>Experiencia:</strong>
+      <%= f.text_field :experience, :size => 3 %><br/>
+      <strong>Comentario:</strong><br/>
+      <%= f.text_area :experience_comment, :rows => 5, :cols => 90 %><br/><br/>
+
+    <% end %>
+  </div>
+<% end %>
 <div id="legal_grades">
 </div>
 <div id="risk_grades">

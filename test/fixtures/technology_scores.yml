@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tech_requirements: 1.5
+  tech_requirements_comment: MyString
+  actual_resources: 1.5
+  actual_resources_comment: MyString
+  missing_resources: 1.5
+  missing_resources_comment: MyString
+  total_score: MyString
+
+two:
+  tech_requirements: 1.5
+  tech_requirements_comment: MyString
+  actual_resources: 1.5
+  actual_resources_comment: MyString
+  missing_resources: 1.5
+  missing_resources_comment: MyString
+  total_score: MyString

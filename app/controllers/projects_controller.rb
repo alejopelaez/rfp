@@ -69,5 +69,7 @@ class ProjectsController < ApplicationController
   def grade
     @project = Project.find(params[:id])
     @cost_score = CostScore.new
+    @tech_score = TechnologyScore.new
+    @development_score = DevelopmentScore.new
   end
 end
