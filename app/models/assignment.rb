@@ -4,7 +4,7 @@ class Assignment < ActiveRecord::Base
 
   attr_accessible :project_id, :user_id, :role
 
-  ASSIGNMENTS = ["costs","technology","legal"]
+  ASSIGNMENTS = ["costs","technology","deveopment","legal","risks","opportunities"]
   
   def self.assignment_list
     ASSIGNMENTS
