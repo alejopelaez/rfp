@@ -1,0 +1,9 @@
+one:
+  name: MyString
+  status: MyString
+  score: 1.5
+
+two:
+  name: MyString
+  status: MyString
+  score: 1.5
