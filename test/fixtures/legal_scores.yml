@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  requirements: 1.5
+  requirements_comment: MyString
+  restrictions: 1.5
+  restrictions_comment: MyString
+  contract: 1.5
+  contract_comment: MyString
+  total_score: 1.5
+
+two:
+  requirements: 1.5
+  requirements_comment: MyString
+  restrictions: 1.5
+  restrictions_comment: MyString
+  contract: 1.5
+  contract_comment: MyString
+  total_score: 1.5

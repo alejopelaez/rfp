@@ -2,6 +2,7 @@ Rfp::Application.routes.draw do
   match "login", :controller => "user_sessions", :action => "new", :as => :login
   match "logout", :controller => "user_sessions", :action => "destroy", :as => :logout
   match "projects/:id/grade", :controller => "projects", :action => "grade", :as => :grade
+  match "projects/:id/submit_grade", :controller => "projects", :action => "submit_grade", :as => :submit_grade
   match "projects/:id/assignment", :controller => "projects", :action => "assignment", :as => :assignment
   match "projects/:id/add_assignment", :controller => "projects", :action => "add_assignment", :as => :add_assignment
 
@@ -11,6 +12,9 @@ Rfp::Application.routes.draw do
   resources :cost_scores
   resources :technology_scores
   resources :development_scores
+  resources :legal_scores
+  resources :risk_scores
+  resources :opportunity_scores
 
   root :to => "user_sessions#new"
 

@@ -5,7 +5,7 @@
 
   <p>
     <% @assignments.each do |a| %>
-      <%= label_tag a %><%= check_box_tag "assignment[]", a %><br/>
+      <%= check_box_tag "assignment[]", a %><%= label_tag a %><br/>
     <% end %>
   <p/>
   <%= submit_tag "Enviar" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110607201639) do
+ActiveRecord::Schema.define(:version => 20110607213224) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "project_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20110607201639) do
     t.string   "cost_comment"
     t.string   "payment_comment"
     t.string   "payment_option_comment"
+    t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "development_scores", :force => true do |t|
@@ -50,11 +52,27 @@ ActiveRecord::Schema.define(:version => 20110607201639) do
     t.float    "total_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "project_id"
   end
 
-  create_table "oportunity_scores", :force => true do |t|
+  create_table "legal_scores", :force => true do |t|
+    t.float    "requirements"
+    t.string   "requirements_comment"
+    t.float    "restrictions"
+    t.string   "restrictions_comment"
+    t.float    "contract"
+    t.string   "contract_comment"
+    t.float    "total_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "project_id"
+  end
+
+  create_table "opportunity_scores", :force => true do |t|
     t.float    "adquired_knowledge"
-    t.string   "adquired_knowldge_comment"
+    t.string   "adquired_knowledge_comment"
     t.float    "importance"
     t.string   "importance_comment"
     t.float    "positioning"
@@ -62,6 +80,8 @@ ActiveRecord::Schema.define(:version => 20110607201639) do
     t.float    "total_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "projects", :force => true do |t|
@@ -80,10 +100,12 @@ ActiveRecord::Schema.define(:version => 20110607201639) do
     t.float    "penalties"
     t.string   "penalties_comment"
     t.float    "fulfillment_probability"
-    t.string   "fulfillmetn_probability_comment"
+    t.string   "fulfillment_probability_comment"
     t.float    "total_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "technology_scores", :force => true do |t|
@@ -96,6 +118,8 @@ ActiveRecord::Schema.define(:version => 20110607201639) do
     t.string   "total_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "user_sessions", :force => true do |t|

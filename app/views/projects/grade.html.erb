@@ -6,92 +6,71 @@
 </p>
 
 <% if can? :grade_cost, @project %>
+  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "cost_icon" %> Costos</h2>
   <div id="cost_grades">
-    <h2>Costos</h2>
-      <%= form_for @cost_score do |f| %>
-      <strong>Costo:</strong>
-      <%= f.text_field :cost, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :cost_comment, :rows => 5, :cols => 90 %><br/><br/>
-      
-      <strong>Pago:</strong>
-      <%= f.text_field :payment, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :payment_comment, :rows => 5, :cols => 90 %><br/><br/>
-      
-      <strong>Forma de pago:</strong>
-      <%= f.text_field :payment_option, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :payment_option_comment, :rows => 5, :cols => 90 %>
+      <%= form_for @cost_score, :url => 'submit_grade' do |f| %>
+      <%= score_fields f, "Costo", :cost, :cost_comment %>
+      <%= score_fields f, "Pago", :payment, :payment_comment %>
+      <%= score_fields f, "Forma de Pago", :payment_option, :payment_option_comment %>
+      <%= f.submit "Evaluar" %>
     <% end %>
   </div>
 <% end %>
 <% if can? :grade_technology, @project %>
   <div id="tech_grades">
-    <h2>Aspecto técnico</h2>
-      <%= form_for @tech_score do |f| %>
-      <strong>Requerimientos Tecnológicos:</strong>
-      <%= f.text_field :tech_requirements, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :tech_requirements_comment, :rows => 5, :cols => 90 %><br/><br/>
-      
-      <strong>Recursos actuales:</strong>
-      <%= f.text_field :actual_resources, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :actual_resources_comment, :rows => 5, :cols => 90 %><br/><br/>
-      
-      <strong>Recursos faltantes:</strong>
-      <%= f.text_field :missing_resources, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :missing_resources_comment, :rows => 5, :cols => 90 %>
+    <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "tech_icon" %> Aspecto técnico</h2>
+      <%= form_for @tech_score, :url => 'submit_grade' do |f| %>
+      <%= score_fields f, "Requerimientos Tecnológicos", :tech_requirements, :tech_requirements_comment %>
+      <%= score_fields f, "Recurso Actuales", :actual_resources, :actual_resources_comment %>
+      <%= score_fields f, "Recurso Faltantes", :missing_resources, :missing_resources_comment %>
+      <%= f.submit "Evaluar" %>
     <% end %>
   </div>
 <% end %>
 <% if can? :grade_development, @project %>
-  <div id="development_grades">
-    <h2>Aspecto de desarrollo</h2>
-      <%= form_for @development_score do |f| %>
-      <strong>Alcance:</strong>
-      <%= f.text_field :scope, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :scope_comment, :rows => 5, :cols => 90 %><br/><br/>
-      
-      <strong>Actividades:</strong>
-      <%= f.text_field :activities, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :activities_comment, :rows => 5, :cols => 90 %><br/><br/>
-      
-      <strong>Fecha de entrega:</strong>
-      <%= f.text_field :deadline, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :deadline_comment, :rows => 5, :cols => 90 %><br/><br/>
-
-      <strong>Conocimiento Requerido:</strong>
-      <%= f.text_field :knowledge, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :knowledge_comment, :rows => 5, :cols => 90 %><br/><br/>
-
-      <strong>Disponibilidad de los recursos tecnológicos:</strong>
-      <%= f.text_field :technology_availability, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :technology_availability_comment, :rows => 5, :cols => 90 %><br/><br/>
-
-      <strong>Disponibilidad de los recursos humanos:</strong>
-      <%= f.text_field :human_availability, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :human_availability_comment, :rows => 5, :cols => 90 %><br/><br/>
-
-      <strong>Experiencia:</strong>
-      <%= f.text_field :experience, :size => 3 %><br/>
-      <strong>Comentario:</strong><br/>
-      <%= f.text_area :experience_comment, :rows => 5, :cols => 90 %><br/><br/>
-
+  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "development_icon" %> Aspecto de desarrollo</h2>
+  <div id="development_grades">  
+      <%= form_for @development_score, :url => 'submit_grade' do |f| %>
+      <%= score_fields f, "Alcance", :scope, :scope_comment %>
+      <%= score_fields f, "Actividades", :activities, :activities_comment %>
+      <%= score_fields f, "Fecha de entrega", :deadline, :deadline_comment %>
+      <%= score_fields f, "Conocimiento requerido", :knowledge, :knowledge_comment %>
+      <%= score_fields f, "Disponibilidad de los recursos tecnológicos", :technology_availability, :technology_availability_comment %>
+      <%= score_fields f, "Disponibilidad de los recursos humanos", :human_availability, :human_availability_comment %>
+      <%= score_fields f, "Experiencia", :experience, :experience_comment %>
+      <%= f.submit "Evaluar" %>
     <% end %>
   </div>
 <% end %>
-<div id="legal_grades">
-</div>
-<div id="risk_grades">
-</div>
-<div id="oportunities_grades">
-</div>
+<% if can? :grade_legal, @project %>
+  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "legal_icon" %> Aspecto legal</h2>
+  <div id="legal_grades">  
+      <%= form_for @legal_score, :url => 'submit_grade' do |f| %>
+      <%= score_fields f, "Requerimientos Legales", :requirements, :requirements_comment %>
+      <%= score_fields f, "Restricciones Legales", :restrictions, :restrictions_comment %>
+      <%= score_fields f, "Contratos", :contract, :contract_comment %>
+      <%= f.submit "Evaluar" %>
+    <% end %>
+  </div>
+<% end %>
+<% if can? :grade_risks, @project %>
+  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "risk_icon" %> Riesgos</h2>
+  <div id="risk_grades">  
+      <%= form_for @risk_score, :url => 'submit_grade' do |f| %>
+      <%= score_fields f, "Penalidades", :penalties, :penalties_comment %>
+      <%= score_fields f, "Probabilidad de cumplimiento", :fulfillment_probability, :fulfillment_probability_comment %>
+      <%= f.submit "Evaluar" %>
+    <% end %>
+  </div>
+<% end %>
+<% if can? :grade_opportunities, @project %>
+  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "opportunities_icon" %> Oportunidades</h2>
+  <div id="opportunities_grades">
+    <%= form_for @opportunity_score, :url => 'submit_grade' do |f| %>
+      <%= score_fields f, "Conocimiento adquirido", :adquired_knowledge, :adquired_knowledge_comment %>
+      <%= score_fields f, "Importancia del proyecto", :importance, :importance_comment %>
+      <%= score_fields f, "Posicionamiento ganado", :positioning, :positioning_comment %>
+      <%= f.submit "Evaluar" %>
+    <% end %>
+  </div>
+<% end %>
