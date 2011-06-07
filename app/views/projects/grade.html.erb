@@ -1,0 +1,37 @@
+<% title "Calificar Proyecto" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<div id="cost_grades">
+  <h2>Costos</h2>
+  <%= form_for @cost_score do |f| %>
+    <strong>Costo:</strong>
+    <%= f.text_field :cost, :size => 4 %><br/>
+    <strong>Comentario:</strong><br/>
+    <%= f.text_area :cost_comment, :rows => 6 %><br/><br/>
+
+    <strong>Pago:</strong>
+    <%= f.text_field :payment, :size => 4 %><br/>
+    <strong>Comentario:</strong><br/>
+    <%= f.text_area :payment_comment, :rows => 6 %><br/><br/>
+
+    <strong>Forma de pago:</strong>
+    <%= f.text_field :payment_option, :size => 4 %><br/>
+    <strong>Comentario:</strong><br/>
+    <%= f.text_area :payment_option_comment, :rows => 6 %>
+
+  <% end %>
+</div>
+<div id="tech_grades">
+</div>
+<div id="development_grades">
+</div>
+<div id="legal_grades">
+</div>
+<div id="risk_grades">
+</div>
+<div id="oportunities_grades">
+</div>

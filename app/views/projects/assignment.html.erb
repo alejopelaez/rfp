@@ -1,0 +1,12 @@
+<% title "Añadir persona para calificar" %>
+<% form_tag :action => :add_assignment do %>
+  <strong>Sleccionar persona:</strong>
+  <%= select_tag :user_id, options_from_collection_for_select(@users,"id","username") %>
+
+  <p>
+    <% @assignments.each do |a| %>
+      <%= label_tag a %><%= check_box_tag "assignment[]", a %><br/>
+    <% end %>
+  <p/>
+  <%= submit_tag "Enviar" %>
+<% end %>

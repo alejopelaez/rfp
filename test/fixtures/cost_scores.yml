@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cost: 1.5
+  payment: 1.5
+  payment_option: 1.5
+  total_score: 1.5
+
+two:
+  cost: 1.5
+  payment: 1.5
+  payment_option: 1.5
+  total_score: 1.5
