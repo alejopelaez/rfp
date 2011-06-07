@@ -1,7 +1,14 @@
 Rfp::Application.routes.draw do
+  match "login", :controller => "user_sessions", :action => "new", :as => :login
+  match "logout", :controller => "user_sessions", :action => "destroy", :as => :logout
+
   resources :users
 
+  resources :user_sessions
+
   resources :projects
+
+  root :to => "user_sessions#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
