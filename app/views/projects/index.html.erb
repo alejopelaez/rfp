@@ -2,18 +2,20 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Score</th>
+    <th>Nombre</th>
+    <th>Estatus</th>
+    <th>Puntaje</th>
   </tr>
   <% for project in @projects %>
     <tr>
       <td><%= project.name %></td>
       <td><%= project.status %></td>
       <td><%= project.score %></td>
-      <td><%= link_to "Show", project %></td>
-      <td><%= link_to "Edit", edit_project_path(project) %></td>
-      <td><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Calificar", :action => 'grade', :id => project.id %></td>
+      <td><%= link_to "Asignar Calificador", :action => 'assignment', :id => project.id %></td>
+      <td><%= link_to "Ver", project %></td>
+      <td><%= link_to "Editar", edit_project_path(project) %></td>
+      <td><%= link_to "Borrar", project, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

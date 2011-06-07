@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
 
     unless params[:assignment].nil?
       params[:assignment].each do |a|
-        assignment = Assignment.where(:role => a).where(:user_id => @user.id).first
+        assignment = Assignment.where(:role => a, :user_id => @user.id, :project_id => @project.id).first
         if assignment.nil?
           assignment = Assignment.new(:user_id => @user.id, :project_id => @project.id, :role => a)
           assignment.save
