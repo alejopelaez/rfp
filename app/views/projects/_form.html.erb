@@ -1,4 +1,4 @@
-<%= form_for @project do |f| %>
+<%= form_for @project, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :name %><br />
@@ -6,11 +6,11 @@
   </p>
   <p>
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.select :status, @status_list.collect{|c| [c,c]} %>
   </p>
   <p>
-    <%= f.label :score %><br />
-    <%= f.text_field :score %>
+    <%= f.label :file %><br />
+    <%= f.file_field :rfp %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

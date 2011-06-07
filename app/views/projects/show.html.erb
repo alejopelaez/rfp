@@ -12,6 +12,10 @@
   <strong>Score:</strong>
   <%= @project.score %>
 </p>
+<p>
+  <strong>RFP:</strong>
+  <%= link_to "Descargar", @project.rfp.url %>
+</p>
 
 <p>
   <%= link_to "Edit", edit_project_path(@project) %> |

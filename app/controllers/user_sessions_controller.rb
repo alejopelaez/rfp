@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Ingreso exitoso!"
-      redirect_to root_url
+      redirect_to projects_url
     else
       render :action => 'new'
     end

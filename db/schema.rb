@@ -10,7 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110607031006) do
+ActiveRecord::Schema.define(:version => 20110607160331) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cost_scores", :force => true do |t|
+    t.float    "cost"
+    t.float    "payment"
+    t.float    "payment_option"
+    t.float    "total_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cost_comment"
+    t.string   "payment_comment"
+    t.string   "payment_option_comment"
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -18,6 +38,10 @@ ActiveRecord::Schema.define(:version => 20110607031006) do
     t.float    "score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "rfp_file_name"
+    t.string   "rfp_content_type"
+    t.integer  "rfp_file_size"
+    t.datetime "rfp_updated_at"
   end
 
   create_table "user_sessions", :force => true do |t|

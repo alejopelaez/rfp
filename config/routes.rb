@@ -1,12 +1,15 @@
 Rfp::Application.routes.draw do
   match "login", :controller => "user_sessions", :action => "new", :as => :login
   match "logout", :controller => "user_sessions", :action => "destroy", :as => :logout
+  match "projects/:id/grade", :controller => "projects", :action => "grade", :as => :grade
+  match "projects/:id/assignment", :controller => "projects", :action => "assignment", :as => :assignment
+  match "projects/:id/add_assignment", :controller => "projects", :action => "add_assignment", :as => :add_assignment
 
   resources :users
-
   resources :user_sessions
-
   resources :projects
+  resources :cost_scores
+
 
   root :to => "user_sessions#new"
 

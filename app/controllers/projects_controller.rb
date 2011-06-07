@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @status_list = Project.status_list
   end
 
   def create
@@ -37,5 +38,36 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_url, :notice => "Successfully destroyed project."
+  end
+
+  def assignment
+    @project = Project.find(params[:id])
+    @assignments = Assignment.assignment_list
+    @users = User.all
+  end
+
+  def add_assignment
+    @project = Project.find(params[:id])
+    @user = User.find(params[:user_id])
+
+    unless params[:assignment].nil?
+      params[:assignment].each do |a|
+        assignment = Assignment.where(:role => a).where(:user_id => @user.id).first
+        if assignment.nil?
+          assignment = Assignment.new(:user_id => @user.id, :project_id => @project.id, :role => a)
+          assignment.save
+        end
+      end
+      flash[:notice] = "#{@user.username} fue asignado para evaluar el RFP"
+    else
+      flash[:error] = "Debes escoger al menos un item para evaluar"
+    end
+
+    redirect_to :action => "assignment"
+  end
+
+  def grade
+    @project = Project.find(params[:id])
+    @cost_score = CostScore.new
   end
 end
