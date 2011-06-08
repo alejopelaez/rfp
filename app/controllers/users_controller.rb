@@ -14,16 +14,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def show    
+  end
+
   def edit
     # @user = current_user
   end
 
   def update
-    # @user = current_user
+    @user = current_user
     if @user.update_attributes(params[:user])
       redirect_to root_url, :notice  => "Successfully updated user."
     else
       render :action => 'edit'
     end
+  end
+
+  def pending_assignments
+    @user = current_user
+    @pending = @user.pending_assignments
   end
 end

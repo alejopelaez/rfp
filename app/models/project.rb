@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
     STATUS
   end
 
-  def grades_pending
+  def grades_pending?
     Assignment.pending.by_project(id).count > 0
   end
 

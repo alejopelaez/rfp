@@ -1,0 +1,7 @@
+<% title "Evaluaciones pendientes" %>
+<% @pending.each do |assignment| %>
+  <p>
+    <strong>RFP: </strong><%= link_to assignment.project.name, assignment.project %><br/>
+    <strong>Área: </strong><%= assignment.role %><br/>
+  </p>
+<% end %>

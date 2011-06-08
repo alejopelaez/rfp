@@ -5,8 +5,16 @@
   <%= @project.name %>
 </p>
 
+<% if @project.grades_pending? %>
+<p>
+  Todavía faltan usuarios por calificar este RFP<br/>
+  <%= link_to "Ver usuarios", :action => :pending_users, :id => @project.id%>
+</p>
+<% end %>
 <% if can? :grade_cost, @project %>
-  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "cost_icon" %> Costos</h2>
+  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "cost_icon" %> 
+    Costos<% if current_user.assignment_done? @project.id, @roles[0] %><%= "(Completo)" %><% end %>
+  </h2>
   <div id="cost_grades">
       <%= form_for @cost_score, :url => 'submit_grade' do |f| %>
       <%= score_fields f, "Costo", :cost, :cost_comment %>
@@ -17,7 +25,10 @@
   </div>
 <% end %>
 <% if can? :grade_technology, @project %>
-  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "tech_icon" %> Aspecto técnico</h2>
+  <h2>
+    <%= image_tag "plus-icon.png", :size => "14x14", :id => "tech_icon" %> 
+    Aspecto técnico<% if current_user.assignment_done? @project.id, @roles[1] %><%= "(Completo)" %><% end %>
+  </h2>
   <div id="tech_grades">    
       <%= form_for @tech_score, :url => 'submit_grade' do |f| %>
       <%= score_fields f, "Requerimientos Tecnológicos", :tech_requirements, :tech_requirements_comment %>
@@ -28,7 +39,10 @@
   </div>
 <% end %>
 <% if can? :grade_development, @project %>
-  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "development_icon" %> Aspecto de desarrollo</h2>
+  <h2>
+    <%= image_tag "plus-icon.png", :size => "14x14", :id => "development_icon" %> 
+    Aspecto de desarrollo<% if current_user.assignment_done? @project.id, @roles[2] %><%= "(Completo)" %><% end %>
+  </h2>
   <div id="development_grades">  
       <%= form_for @development_score, :url => 'submit_grade' do |f| %>
       <%= score_fields f, "Alcance", :scope, :scope_comment %>
@@ -43,7 +57,10 @@
   </div>
 <% end %>
 <% if can? :grade_legal, @project %>
-  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "legal_icon" %> Aspecto legal</h2>
+  <h2>
+    <%= image_tag "plus-icon.png", :size => "14x14", :id => "legal_icon" %> 
+    Aspecto legal<% if current_user.assignment_done? @project.id, @roles[3] %><%= "(Completo)" %><% end %>
+  </h2>
   <div id="legal_grades">  
       <%= form_for @legal_score, :url => 'submit_grade' do |f| %>
       <%= score_fields f, "Requerimientos Legales", :requirements, :requirements_comment %>
@@ -54,7 +71,10 @@
   </div>
 <% end %>
 <% if can? :grade_risks, @project %>
-  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "risk_icon" %> Riesgos</h2>
+  <h2>
+    <%= image_tag "plus-icon.png", :size => "14x14", :id => "risk_icon" %> 
+    Riesgos<% if current_user.assignment_done? @project.id, @roles[4] %><%= "(Completo)" %><% end %>
+  </h2>
   <div id="risk_grades">  
       <%= form_for @risk_score, :url => 'submit_grade' do |f| %>
       <%= score_fields f, "Penalidades", :penalties, :penalties_comment %>
@@ -64,7 +84,10 @@
   </div>
 <% end %>
 <% if can? :grade_opportunities, @project %>
-  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "opportunities_icon" %> Oportunidades</h2>
+  <h2>
+    <%= image_tag "plus-icon.png", :size => "14x14", :id => "opportunities_icon" %> 
+    Oportunidades<% if current_user.assignment_done? @project.id, @roles[5] %><%= "(Completo)" %><% end %>
+  </h2>
   <div id="opportunities_grades">
     <%= form_for @opportunity_score, :url => 'submit_grade' do |f| %>
       <%= score_fields f, "Conocimiento adquirido", :adquired_knowledge, :adquired_knowledge_comment %>

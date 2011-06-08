@@ -3,9 +3,10 @@ Rfp::Application.routes.draw do
   match "logout", :controller => "user_sessions", :action => "destroy", :as => :logout
   match "projects/:id/grade", :controller => "projects", :action => "grade", :as => :grade
   match "projects/:id/submit_grade", :controller => "projects", :action => "submit_grade", :as => :submit_grade
+  match "projects/:id/pending_users", :controller => "projects", :action => "pending_users", :as => :pending_users
   match "projects/:id/assignment", :controller => "projects", :action => "assignment", :as => :assignment
   match "projects/:id/add_assignment", :controller => "projects", :action => "add_assignment", :as => :add_assignment
-
+  match "users/pending_assigmnents", :controller => "users", :action => "pending_assignments", :as => :pending_assignments
   resources :users
   resources :user_sessions
   resources :projects

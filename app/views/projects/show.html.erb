@@ -18,7 +18,9 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_project_path(@project) %> |
-  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", projects_path %>
+  <%= link_to "Calificar", :action => 'grade', :id => @project.id %> |
+  <%= link_to "Asignar Calificador", :action => 'assignment', :id => @project.id %> |
+  <%= link_to "Editar", edit_project_path(@project) %> |
+  <%= link_to "Borrar", @project, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Ver todos", projects_path %>
 </p>
