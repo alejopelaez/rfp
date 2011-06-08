@@ -1,7 +1,7 @@
 <% title "Calificar Proyecto" %>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @project.name %>
 </p>
 
@@ -17,8 +17,8 @@
   </div>
 <% end %>
 <% if can? :grade_technology, @project %>
-  <div id="tech_grades">
-    <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "tech_icon" %> Aspecto técnico</h2>
+  <h2><%= image_tag "plus-icon.png", :size => "14x14", :id => "tech_icon" %> Aspecto técnico</h2>
+  <div id="tech_grades">    
       <%= form_for @tech_score, :url => 'submit_grade' do |f| %>
       <%= score_fields f, "Requerimientos Tecnológicos", :tech_requirements, :tech_requirements_comment %>
       <%= score_fields f, "Recurso Actuales", :actual_resources, :actual_resources_comment %>

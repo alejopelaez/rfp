@@ -24,6 +24,7 @@ class Ability
 
       can :grade_technology, Project do |p|
         assignment = Assignment.where(:user_id => user.id, :project_id => p.id, :role => assignments[1]).first
+        puts "----#{!assignment.nil?}-----"
         !assignment.nil?
       end
 
