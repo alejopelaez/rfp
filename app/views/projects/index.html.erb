@@ -1,23 +1,27 @@
-<% title "Projects" %>
+<% title "Lista de RFPs" %>
 
-<table>
+<table id="rfp_table">
   <tr>
     <th>Nombre</th>
     <th>Estatus</th>
+    <th>Compañía</th>
     <th>Puntaje</th>
   </tr>
+  <% i = 0 %>
   <% for project in @projects %>
-    <tr>
+    <% if i == 0 %><tr class="even"> <% else %><tr class="odd"><% end %>
+    <% i = (i+1)%2 %>
       <td><%= project.name %></td>
       <td><%= project.status %></td>
-      <td><%= project.score %></td>
+      <td><%= project.company %></td>
+      <td><%= project.score.to_f %></td>
       <td><%= link_to "Calificar", :action => 'grade', :id => project.id %></td>
       <td><%= link_to "Asignar Calificador", :action => 'assignment', :id => project.id %></td>
-      <td><%= link_to "Ver", project %></td>
-      <td><%= link_to "Editar", edit_project_path(project) %></td>
-      <td><%= link_to "Borrar", project, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to image_tag("view.png", :size => "28x28", :title => "Ver"), project %></td>
+      <td><%= link_to image_tag("edit.png", :size => "28x28", :title => "Editar"), edit_project_path(project) %></td>
+      <td><%= link_to image_tag("delete.png", :size => "28x28", :title => "Borrar"), project, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Project", new_project_path %></p>
+<p><%= link_to "Agregar RFP", new_project_path %></p>

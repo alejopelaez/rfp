@@ -1,22 +1,30 @@
-<% title "Project" %>
-
+<% title @project.name %>
 <p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-<p>
-  <strong>Status:</strong>
+  <strong>Estatus:</strong>
   <%= @project.status %>
 </p>
 <p>
-  <strong>Score:</strong>
-  <%= @project.score %>
+  <strong>Compañía:</strong>
+  <%= @project.company %>
+</p>
+<p>
+  <strong>Puntaje:</strong>
+  <%= @project.score.to_f %>
 </p>
 <p>
   <strong>RFP:</strong>
   <%= link_to "Descargar", @project.rfp.url %>
 </p>
-
+<p>
+  <strong>Comentario:</strong>
+  <%= @project.comment %>
+</p>
+<% if @project.grades_pending? %>
+<p>
+  Todavía faltan usuarios por calificar este RFP<br/>
+  <%= link_to "Ver usuarios", :action => :pending_users, :id => @project.id %>
+</p>
+<% end %>
 <p>
   <%= link_to "Calificar", :action => 'grade', :id => @project.id %> |
   <%= link_to "Asignar Calificador", :action => 'assignment', :id => @project.id %> |

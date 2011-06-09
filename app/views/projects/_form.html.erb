@@ -1,16 +1,24 @@
 <%= form_for @project, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nombre" %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :status %><br />
+    <%= f.label :name, "Compañia" %><br />
+    <%= f.text_field :company %>
+  </p>
+  <p>
+    <%= f.label :status, "Estatus" %><br />
     <%= f.select :status, @status_list.collect{|c| [c,c]} %>
   </p>
   <p>
-    <%= f.label :file %><br />
+    <%= f.label :file, "Archivo" %><br />
     <%= f.file_field :rfp %>
   </p>
-  <p><%= f.submit %></p>
+  <p>
+    <%= f.label :name, "Commentario" %><br />
+    <%= f.text_area :comment %>
+  </p>
+  <p><%= f.submit "Proceder" %></p>
 <% end %>

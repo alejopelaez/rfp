@@ -18,10 +18,15 @@ a {
   overflow: hidden;
 }
 
+#user_nav{
+  float: right;
+  font-size: 12px;
+}
+
 #container {
   width: 75%;
   margin: 0 auto;
-  background-color: #FFF;
+  background-color: #FFF;  
   padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px;
@@ -74,7 +79,24 @@ a {
   margin: 0;
 }
 
-#user_nav{
-  float: right;
-  font-size: 12px;
+#rfp_table{
+    border-collapse:collapse;
 }
+
+.even td{
+    text-align: center;
+    background-color: #CCCCFF;
+    border: 1px solid #4B7399;
+}
+
+.odd td{
+    text-align: center;
+    background-color: #F0F8FF;
+    border: 1px solid #4B7399;
+}
+
+#rfp_table th{
+    font-size: 18px;
+    background-color: #4B7399;
+    color: white;
+};

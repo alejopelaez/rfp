@@ -4,6 +4,7 @@
   <%= select_tag :user_id, options_from_collection_for_select(@users,"id","username") %>
 
   <p>
+    <strong>Aspectos</strong><br/>
     <% @assignments.each do |a| %>
       <%= check_box_tag "assignment[]", a %><%= label_tag a %><br/>
     <% end %>

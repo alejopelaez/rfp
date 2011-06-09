@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110608021622) do
+ActiveRecord::Schema.define(:version => 20110609004701) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "project_id"
@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(:version => 20110608021622) do
     t.string   "rfp_content_type"
     t.integer  "rfp_file_size"
     t.datetime "rfp_updated_at"
+    t.string   "comment"
+    t.string   "company"
   end
 
   create_table "risk_scores", :force => true do |t|
