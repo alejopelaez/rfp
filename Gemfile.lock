@@ -32,6 +32,10 @@ GEM
     authlogic (3.0.3)
       activerecord (>= 3.0.7)
       activerecord (>= 3.0.7)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     builder (2.1.2)
     cancan (1.6.5)
     erubis (2.6.6)
@@ -73,12 +77,14 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.27)
+    xml-simple (1.0.16)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   authlogic (>= 3.0.3)
+  aws-s3
   cancan (>= 1.6.5)
   mocha
   nifty-generators (>= 0.4.0)

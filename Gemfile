@@ -26,6 +26,7 @@ gem 'nifty-generators', '>= 0.4.0'
 gem "authlogic", '>= 3.0.3'
 gem "paperclip", "> 2.3"
 gem "cancan", ">= 1.6.5"
+gem "aws-s3"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
