@@ -26,7 +26,7 @@
 </p>
 <% else %>
 <p>
-  <strong> Similars Projects </strong>
+  <strong> Proyectos Similares </strong>
   <ul>
     <% for p in @project.similars %>
     <li> <%= link_to "*" + h(p.name) + "*", p %> </li>
