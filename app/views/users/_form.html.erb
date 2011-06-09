@@ -1,7 +1,7 @@
 <%= form_for @user do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :username %><br />
+    <%= f.label :username, "Nombre de usuario" %><br />
     <%= f.text_field :username %>
   </p>
   <p>
@@ -13,8 +13,8 @@
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Confirmación" %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Proceder" %></p>
 <% end %>

@@ -4,6 +4,8 @@ class OpportunityScore < ActiveRecord::Base
 
   attr_protected
 
+  scope :by_project, lambda{|q| where(:project_id => q)}
+
   def avg
     (adquired_knowledge+importance+positioning)/3.0
   end

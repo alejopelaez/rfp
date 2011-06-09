@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @status_list = Project.status_list
   end
 
   def update
@@ -122,6 +123,7 @@ class ProjectsController < ApplicationController
     if(can?(:grade_opportunities, @project) and params[:opportunity_score])
       create_grade(OpportunityScore,params[:opportunity_score],@user.id, @project.id,roles[5])
     end
+    @project.calculate_score
 
     flash[:notice] = "Evaluacion exitosa"
     redirect_to :action => :grade

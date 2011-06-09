@@ -4,6 +4,8 @@ belongs_to :user
 
   attr_protected
 
+  scope :by_project, lambda{|q| where(:project_id => q)}
+
   def avg
     (requirements+restrictions+contract)/3.0
   end
