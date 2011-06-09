@@ -82,12 +82,14 @@ class Project < ActiveRecord::Base
       total += 1
     end
 
-    tendencies.each_pair do |k,v|
-      tmp = v.to_f/total.to_f
-      tmp = (tmp*100.0).round/100.0
-      tendencies[k] = tmp
+    if(total > 0)
+      tendencies.each_pair do |k,v|
+        tmp = v.to_f/total.to_f
+        tmp = (tmp*100.0).round/100.0
+        tendencies[k] = tmp
+      end
+      tendencies
     end
-    tendencies
   end
 
 end

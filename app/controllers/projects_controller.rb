@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_filter :authorize_projects
+
   def index
     @projects = Project.all
   end
@@ -16,6 +18,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(params[:project])
+    @project.score = 0.0
     if @project.save
       redirect_to @project, :notice => "Successfully created project."
     else
@@ -134,5 +137,11 @@ class ProjectsController < ApplicationController
   def pending_users
     @project = Project.find(params[:id])
     @users = @project.pending_users
+  end
+
+  def authorize_projects
+    if current_user.nil?
+      raise CanCan::AccessDenied
+    end
   end
 end

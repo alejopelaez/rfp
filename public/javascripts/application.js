@@ -1,52 +1,53 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-$(document).ready(function(){
-    $("#cost_grades").hide();
-    $("#tech_grades").hide();
-    $("#development_grades").hide();
-    $("#legal_grades").hide();
-    $("#risk_grades").hide();
-    $("#opportunities_grades").hide();  
 
-    $("#cost_icon").live('click',function(){
-	element = $("#cost_grades");
+jQuery(document).ready(function(){
+    jQuery("#cost_grades").hide();
+    jQuery("#tech_grades").hide();
+    jQuery("#development_grades").hide();
+    jQuery("#legal_grades").hide();
+    jQuery("#risk_grades").hide();
+    jQuery("#opportunities_grades").hide();  
+
+    jQuery("#cost_icon").live('click',function(){
+	element = jQuery("#cost_grades");
 	if(element.is(":visible"))
 	    element.hide(300);
 	else
 	    element.show(300);
     });
 
-    $("#tech_icon").live('click',function(){
-	element = $("#tech_grades");
+    jQuery("#tech_icon").live('click',function(){
+	element = jQuery("#tech_grades");
 	if(element.is(":visible"))
 	    element.hide(300);
 	else
 	    element.show(300);
     });
-    $("#development_icon").live('click',function(){
-	element = $("#development_grades");
+    jQuery("#development_icon").live('click',function(){
+	element = jQuery("#development_grades");
 	if(element.is(":visible"))
 	    element.hide(300);
 	else
 	    element.show(300);
     });
-    $("#legal_icon").live('click',function(){
-	element = $("#legal_grades");
+    jQuery("#legal_icon").live('click',function(){
+	element = jQuery("#legal_grades");
 	if(element.is(":visible"))
 	    element.hide(300);
 	else
 	    element.show(300);
     });
-    $("#risk_icon").live('click',function(){
-	element = $("#risk_grades");
+    jQuery("#risk_icon").live('click',function(){
+	element = jQuery("#risk_grades");
 	if(element.is(":visible"))
 	    element.hide(300);
 	else
 	    element.show(300);
     });
-    $("#opportunities_icon").live('click',function(){
-	element = $("#opportunities_grades");
+    jQuery("#opportunities_icon").live('click',function(){
+	element = jQuery("#opportunities_grades");
 	if(element.is(":visible"))
 	    element.hide(300);
 	else

@@ -25,22 +25,28 @@
   <%= link_to "Ver usuarios", :action => :pending_users, :id => @project.id %>
 </p>
 <% else %>
-<p>
-  <strong> Proyectos Similares </strong>
-  <ul>
-    <% for p in @similars %>
-    <li> <%= link_to "*" + h(p.name) + "*", p %> </li>
-    <% end %>
-  </ul>
-</p>
-<p>
-  <strong> Tendencias </strong>
-  <ul>
-    <% @tendencies.each_pair do |k,v| %>
-    <li> <%= "% Similares en estado #{k} = #{v*100}%" %> </li>
-    <% end %>
-  </ul>
-</p>
+  <strong> No se encontraron proyectos similares </strong>
+<% if @similars.size == 0 %>
+<% else %>
+  <p>
+    <strong> Proyectos Similares </strong>
+    <ul>
+      <% for p in @similars %>
+      <li> <%= link_to "*" + h(p.name) + "*", p %> </li>
+      <% end %>
+    </ul>
+  </p>
+<% end %>
+<% unless @tendencies.nil? %>
+  <p>
+    <strong> Tendencias </strong>
+    <ul>
+      <% @tendencies.each_pair do |k,v| %>
+      <li> <%= "% Similares en estado #{k} = #{v*100}%" %> </li>
+      <% end %>
+    </ul>
+  </p>
+<% end %>
 <% end %>
 <p>
   <%= link_to "Calificar", :action => 'grade', :id => @project.id %> |
