@@ -28,8 +28,16 @@
 <p>
   <strong> Proyectos Similares </strong>
   <ul>
-    <% for p in @project.similars %>
+    <% for p in @similars %>
     <li> <%= link_to "*" + h(p.name) + "*", p %> </li>
+    <% end %>
+  </ul>
+</p>
+<p>
+  <strong> Tendencias </strong>
+  <ul>
+    <% @tendencies.each_pair do |k,v| %>
+    <li> <%= "% Similares en estado #{k} = #{v*100}%" %> </li>
     <% end %>
   </ul>
 </p>

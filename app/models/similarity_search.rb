@@ -7,7 +7,7 @@ module SimilaritySearch
     
   end
 
-  def self.similars(to, tol=10)
+  def self.similars(to, tol=0.9)
     base_score = to.score
     nears = []
     Project.all.each do |p|

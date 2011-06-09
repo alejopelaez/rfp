@@ -69,4 +69,25 @@ class Project < ActiveRecord::Base
     self.score = (sum*100).round/100.0
     self.save
   end
+
+  def calculate_tendencies(similars)
+    tendencies = {}
+    STATUS.each do |s|
+      tendencies[s] = 0
+    end
+
+    total = 0
+    similars.each do |s|
+      tendencies[s.status] += 1
+      total += 1
+    end
+
+    tendencies.each_pair do |k,v|
+      tmp = v.to_f/total.to_f
+      tmp = (tmp*100.0).round/100.0
+      tendencies[k] = tmp
+    end
+    tendencies
+  end
+
 end

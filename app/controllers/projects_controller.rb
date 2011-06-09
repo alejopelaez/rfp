@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @similars = @project.similars
+    @tendencies = @project.calculate_tendencies(@similars)
   end
 
   def new
