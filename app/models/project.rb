@@ -26,7 +26,11 @@ class Project < ActiveRecord::Base
     end
     users
   end
-
+  
+  def similars
+    SimilaritySearch.similars(self)
+  end
+  
   def calculate_score
     cost_scores = CostScore.by_project(self.id)
     tech_scores = TechnologyScore.by_project(self.id)
