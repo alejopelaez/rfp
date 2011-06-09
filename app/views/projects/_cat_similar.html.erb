@@ -1,0 +1,8 @@
+<p>
+  <strong> RFPs similares por <%=h category %> </strong>
+  <ul>
+    <% for p in projects %>
+    <li> <%= link_to "*" + h(p.name) + "*", p %> </li>
+    <% end %>
+  </ul>
+</p>
