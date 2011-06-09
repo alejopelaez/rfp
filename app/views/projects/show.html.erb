@@ -26,13 +26,38 @@
 </p>
 <% else %>
 <p>
-  <strong> Proyectos Similares </strong>
+  <strong> RFPs Similares </strong>
   <ul>
     <% for p in @project.similars %>
     <li> <%= link_to "*" + h(p.name) + "*", p %> </li>
     <% end %>
   </ul>
 </p>
+<% if not (cost = @project.cost_similars).blank? %>
+ <%= render :partial => 'cat_similar', 
+            :locals => { :category => "Costo", :projects => cost } %>
+<% end %>
+<% if not (tech = @project.tech_similars).blank? %>
+ <%= render :partial => 'cat_similar', 
+            :locals => { :category => "Tecnico", :projects => tech } %>
+<% end %>
+<% if not (dev = @project.dev_similars).blank? %>
+ <%= render :partial => 'cat_similar', 
+            :locals => { :category => "Desarrollo", :projects => dev } %>
+<% end %>
+<% if not (legal = @project.legal_similars).blank? %>
+ <%= render :partial => 'cat_similar', 
+            :locals => { :category => "Legal", :projects => legal } %>
+<% end %>
+<% if not (risk = @project.risk_similars).blank? %>
+ <%= render :partial => 'cat_similar', 
+            :locals => { :category => "Riesgo", :projects => risk } %>
+<% end %>
+<% if not (opp = @project.opp_similars).blank? %>
+ <%= render :partial => 'cat_similar', 
+            :locals => { :category => "Oportunidad", :projects => opp } %>
+<% end %>
+
 <% end %>
 <p>
   <%= link_to "Calificar", :action => 'grade', :id => @project.id %> |
