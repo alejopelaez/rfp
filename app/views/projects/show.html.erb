@@ -24,6 +24,15 @@
   Todavía faltan usuarios por calificar este RFP<br/>
   <%= link_to "Ver usuarios", :action => :pending_users, :id => @project.id %>
 </p>
+<% else %>
+<p>
+  <strong> Similars Projects </strong>
+  <ul>
+    <% for p in @project.similars %>
+    <li> <%= link_to "*" + h(p.name) + "*", p %> </li>
+    <% end %>
+  </ul>
+</p>
 <% end %>
 <p>
   <%= link_to "Calificar", :action => 'grade', :id => @project.id %> |
