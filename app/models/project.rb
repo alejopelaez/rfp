@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   has_many :assignments
 
+ extend StoreAttachmentOnS3 if Rails.env.production?
+
   has_attached_file :rfp
   attr_accessible :name, :status, :score, :rfp, :company, :comment
 
